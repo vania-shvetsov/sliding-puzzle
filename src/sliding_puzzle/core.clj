@@ -12,7 +12,7 @@
 
 (q/defsketch sliding-puzzle
   :size [401 401]
-  :title "Sliding Puzzle the game"
+  :title "Sliding Puzzle"
   :features [:keep-on-top :no-bind-output]
   :setup setup
   :draw render/draw-state
