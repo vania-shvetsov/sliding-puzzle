@@ -7,14 +7,17 @@
 (def ^:private xs (range game/puzzle-width))
 (def ^:private ys (range game/puzzle-height))
 
+(defn- pos->tile-num [x y]
+  (inc (+ x (* y game/puzzle-width))))
+
 (defn- draw-tiles [tiles]
-  (doseq [x game/xs
-          y game/ys
+  (doseq [x xs
+          y ys
           :let [n (game/get-from-matrix tiles [x y])
                 pos-x (* x tile-size)
                 pos-y (* y tile-size)
                 color (condp = n
-                        (game/pos->index x y) [87 213 41]
+                        (pos->tile-num x y) [87 213 41]
                         [255 255 150])]]
     (q/stroke-weight 3)
     (q/stroke 30)
